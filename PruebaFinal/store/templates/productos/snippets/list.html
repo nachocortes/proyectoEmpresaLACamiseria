@@ -1,0 +1,10 @@
+<div class="row">
+    <!--Como hay codigo duplicado se genera un nuevo snippet con el for -->
+    {% for object in producto_list %}
+    <div class="col-3 mt-5">
+         {% include 'productos/snippets/producto.html' with producto=object %}
+
+    </div>
+
+     {% endfor %}
+    </div>

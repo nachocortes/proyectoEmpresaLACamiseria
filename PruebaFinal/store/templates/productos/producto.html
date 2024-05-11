@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="col-3 mt-3"> 
+{% if producto.imagen %}
+    <img src="{{ producto.imagen.url}}" alt="{{producto.nombre}}" width="200" height="200">
+{% else %}
+    <img class="card-img-top" src="{% static 'images/aimagenot.png' %}" alt="Card image cap" style=" height: 200px; object-fit: cover;">
+{% endif %}
+</div>
+
+
+<div class="col mt-3">
+
+    <div class="h1">
+    {{producto.nombre}}
+    </div>
+
+        <div class="h5 font-weight-bold">
+        Precio: <span class="text-danger">${{producto.precio}}</span>
+            </div>
+
+        <div class="">
+        <p>{{producto.descripcion}} </p>
+        </div>
+        <div class="">
+            {% include 'carts/snippets/add.html' %}
+        </div>
+</div>
+
+
+{% endblock %}
