@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Confirmacion pedido{% endblock %}
+{% block cuerpo %}
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header">Gracias por comprar con nosotros
+                </h3>
+                <p>Su pedido ha sido completada satisfactoriamente, la referencia de su pedido es
+                    <strong>{{ pedido.id }}</strong>.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row-auto">
+                {% include 'pedidos/pedido/tabla_pedido.html' %}
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{% url 'cart:pedido_detail' pedido.id %}"
+                   class="btn btn-lg btn-outline-dark"><i class="fa fa-eye"></i> Ver PDF</a>
+                <a href="{% url 'cart:pedido_detail' pedido.id %}"
+                   class="btn btn-lg btn-outline-info align-center"><i class="fa fa-eye"></i> Ver factura</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

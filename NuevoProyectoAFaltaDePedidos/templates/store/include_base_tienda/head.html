@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Yoga Studio Template">
+    <meta name="keywords" content="Yoga, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %} | LaCamiseria</title>
+    <!-- Google Font -->
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+          rel="stylesheet">
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'store/inicio/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'store/inicio/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'store/inicio/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'store/inicio/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'store/inicio/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'store/inicio/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'store/inicio/css/style.css' %}" type="text/css">
+    <!-- main css -->
+    <link href="{% static 'store/about/css/styles.css' %}" rel="stylesheet"/>
+    <!-- Bootstrap -->
+    <link href="{% static 'store/inicio/css/bootstrap.min.css' %}" rel="stylesheet">
+    {% block head %} {% endblock %}
+</head>

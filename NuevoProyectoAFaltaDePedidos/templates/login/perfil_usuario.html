@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Perfil usuario{% endblock %}
+{% block cuerpo %}
+    <div class="container">
+        {% if user.is_authenticated %}
+            <h1> Bienvenido </h1>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Usuario</h5>
+                    <p class="card-text">Username: {{ user.username }}</p>
+                    {% if user.first_name and user.last_name %}
+                        <p class="card-text">Nombre: {{ user.first_name }} {{ user.last_name }}</p>
+                    {% elif user.first_name and not user.last_name %}
+                        <p class="card-text">Nombre: {{ user.first_name }}</p>
+                    {% elif not user.first_name and user.last_name %}
+                        <p class="card-text">Apellidos: {{ user.last_name }}</p>
+                    {% endif %}
+                    {% if user.email %}
+                        <p class="card-text">Email: {{ user.email }}</p>
+                    {% endif %}
+                    <div class="">
+                        <a href="{% url 'edit_profile' %}" class="btn btn-info">Editar perfil</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <h1> No hay sesion iniciada </h1>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+

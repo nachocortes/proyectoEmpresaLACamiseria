@@ -1,8 +1,14 @@
+from django.shortcuts import render
 from django.views.generic.list import ListView
 from .models import Producto
 from django.views.generic.detail import DetailView
 from django.db.models import Q
 
+def prueba(request):
+    return render(request, 'store/prueba.html', )
+def home_store(request):
+    camisas = Producto.objects.all()
+    return render(request, 'store/home_store.html', {'camisas':camisas})
 
 class ProductoListView(ListView):
     template_name = 'index.html'

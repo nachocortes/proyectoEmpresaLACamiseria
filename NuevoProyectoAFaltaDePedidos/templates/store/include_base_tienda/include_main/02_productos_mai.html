@@ -1,0 +1,336 @@
+
+{% load static %}
+
+<!-- Categories Page Section Begin -->
+<section class="categories-page spad">
+    <div class="container">
+        <div class="categories-controls">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="categories-filter">
+                        <div class="cf-left">
+                            <form action="#">
+                                <label>
+                                    <select class="sort">
+                                        <option value="">Ordenar por</option>
+                                        <opPedidostion value="">Pedidos</opPedidostion>
+                                        <option value="">Destacados</option>
+                                        <option value="">Precio</option>
+                                    </select>
+                                </label>
+                            </form>
+                        </div>
+                        <div class="cf-right">
+                            <span>20 Productos</span>
+                            <a href="#">2</a>
+                            <a href="#" class="active">4</a>
+                            <a href="#">6</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for producto in camisas %}
+                {% if producto.id == 1 %}
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-product-item">
+                            <figure>
+                                <img src="{{ producto.imagen.url }}" alt="">
+                                <div class="p-status">nuevo</div>
+                                <div class="hover-icon">
+                                    <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                            src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                            alt=""></a>
+                                </div>
+                            </figure>
+                            <div class="product-text">
+                                <a href="#">
+                                    <h6>{{ producto.nombre }}</h6>
+                                </a>
+                                <p>{{ producto.precio }}€</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="col-lg-6 col-md-6">
+                <div class="row">
+                    {% for producto in camisas %}
+                        {% if producto.id == 2 %}
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-product-item">
+                                    <figure>
+                                        <img src="{{ producto.imagen.url }}" alt="">
+                                        <div class="p-status sale">oferta</div>
+                                    </figure>
+                                    <div class="product-text">
+                                        <a href="#">
+                                            <h6>{{ producto.nombre }}</h6>
+                                        </a>
+                                        <p>{{ producto.precio }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if producto.id == 3 %}
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-product-item">
+                                    <figure>
+                                        <img src="{{ producto.imagen.url }}" alt="">
+                                        <div class="p-status">nuevo</div>
+                                        <div class="hover-icon">
+                                            <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                                    src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                                    alt=""></a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-text">
+                                        <a href="#">
+                                            <h6>{{ producto.nombre }}</h6>
+                                        </a>
+                                        <p>{{ producto.precio }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if producto.id == 4 %}
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-product-item">
+                                    <figure>
+                                        <img src="{{ producto.imagen.url }}" alt="">
+                                        <div class="p-status sale">oferta</div>
+                                    </figure>
+                                    <div class="product-text">
+                                        <a href="#">
+                                            <h6>{{ producto.nombre }}</h6>
+                                        </a>
+                                        <p>{{ producto.precio }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if producto.id == 5 %}
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-product-item">
+                                    <figure>
+                                        <img src="{{ producto.imagen.url }}" alt="">
+                                        <div class="p-status new">nuevo</div>
+                                        <div class="hover-icon">
+                                            <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                                    src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                                    alt=""></a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-text">
+                                        <a href="#">
+                                            <h6>{{ producto.nombre }}</h6>
+                                        </a>
+                                        <p>{{ producto.precio }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% for producto in camisas %}
+                {% if producto.id == 6 %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-product-item">
+                            <figure>
+                                <img src="{{ producto.imagen.url }}" alt="">
+                                <div class="p-status">nuevo</div>
+                                <div class="hover-icon">}
+                                    <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                            src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                            alt=""></a>
+                                </div>
+                            </figure>
+                            <div class="product-text">
+                                <a href="#">
+                                    <h6>{{ producto.nombre }}</h6>
+                                </a>
+                                <p>{{ producto.precio }}€</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if producto.id == 7 %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-product-item">
+                            <figure>
+                                <img src="{{ producto.imagen.url }}" alt="">
+                                <div class="p-status popular">popular</div>
+                                <div class="hover-icon">
+                                    <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                            src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                            alt=""></a>
+                                </div>
+                            </figure>
+                            <div class="product-text">
+                                <a href="#">
+                                    <h6>{{ producto.nombre }}</h6>
+                                </a>
+                                <p>{{ producto.precio }}€</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if producto.id == 8 %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-product-item">
+                            <figure>
+                                <img src="{{ producto.imagen.url }}" alt="">
+                                <div class="p-status popular">popular</div>
+                                <div class="hover-icon">
+                                    <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                            src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                            alt=""></a>
+                                </div>
+                            </figure>
+                            <div class="product-text">
+                                <a href="#">
+                                    <h6>{{ producto.nombre }}</h6>
+                                </a>
+                                <p>{{ producto.precio }}€</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if producto.id == 9 %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-product-item">
+                            <figure>
+                                <img src="{{ producto.imagen.url }}" alt="">
+                                <div class="p-status popular">popular</div>
+                                <div class="hover-icon">
+                                    <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                            src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                            alt=""></a>
+                                </div>
+                            </figure>
+                            <div class="product-text">
+                                <a href="#">
+                                    <h6>{{ producto.nombre }}</h6>
+                                </a>
+                                <p>{{ producto.precio }}€</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="col-lg-6 col-md-6">
+                <div class="row">
+                    {% for producto in camisas %}
+                        {% if producto.id == 10 %}
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-product-item">
+                                    <figure>
+                                        <img src="{{ producto.imagen.url }}" alt="">
+                                        <div class="p-status sale">oferta</div>
+                                    </figure>
+                                    <div class="product-text">
+                                        <a href="#">
+                                            <h6>{{ producto.nombre }}€</h6>
+                                        </a>
+                                        <p>{{ producto.precio }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if producto.id == 11 %}
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-product-item">
+                                    <figure>
+                                        <img src="{{ producto.imagen.url }}" alt="">
+                                        <div class="p-status">nuevo</div>
+                                        <div class="hover-icon">
+                                            <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                                    src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                                    alt=""></a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-text">
+                                        <a href="#">
+                                            <h6>{{ producto.nombre }}</h6>
+                                        </a>
+                                        <p>{{ producto.precio }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if producto.id == 12 %}
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-product-item">
+                                    <figure>
+                                        <img src="{{ producto.imagen.url }}" alt="">
+                                        <div class="p-status sale">oferta</div>
+                                    </figure>
+                                    <div class="product-text">
+                                        <a href="#">
+                                            <h6>{{ producto.nombre }}</h6>
+                                        </a>
+                                        <p>{{ producto.precio }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if producto.id == 13 %}
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-product-item">
+                                    <figure>
+                                        <img src="{{ producto.imagen.url }}" alt="">
+                                        <div class="p-status sale">oferta</div>
+                                        <div class="hover-icon">
+                                            <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                                    src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                                    alt=""></a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-text">
+                                        <a href="#">
+                                            <h6>{{ producto.nombre }}</h6>
+                                        </a>
+                                        <p>{{ producto.precio }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% for producto in camisas %}
+                {% if producto.id == 14 %}
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-product-item">
+                            <figure>
+                                <img src="{{ producto.imagen.url }}" alt="">
+                                <div class="p-status">nuevo</div>
+                                <div class="hover-icon">
+                                    <a href="{{ producto.imagen.url }}" class="pop-up"><img
+                                            src="{% static 'store/productos/img/iconos/zoom-plus.png' %}"
+                                            alt=""></a>
+                                </div>
+                            </figure>
+                            <div class="product-text">
+                                <a href="#">
+                                    <h6>{{ producto.nombre }}</h6>
+                                </a>
+                                <p>{{ producto.precio }}€</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="more-product">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="#" class="primary-btn">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Page Section End -->

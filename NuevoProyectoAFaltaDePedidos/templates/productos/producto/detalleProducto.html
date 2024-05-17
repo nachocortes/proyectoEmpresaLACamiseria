@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Producto {{ producto.nombre }}{% endblock %}
+{% block cuerpo %}
+    <div class="container">
+        <div class="col">
+            <h1>{{ producto.categoria }}</h1>
+        </div>
+        <div class="col">
+            <div class="col-lg-6 col-md-6 col-sm-6 mb-6">
+                <div class="card">
+                    <a href="{{ producto.get_absolute_url }}" style=" color: inherit;text-decoration: none;">
+                        <img class="card-img-top" src="
+
+                                
+                                
+                                {% if producto.imagen %}{{ producto.imagen.url }}{% else %}{% static "img/imagen_default.png" %}{% endif %}"
+                             alt="Imagen del producto">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ producto.nombre }}</h5>
+                        <p class="card-text">{{ producto.descripcion }}.</p>
+                        {{ producto.precio }} €
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-6">
+                                <a href="{% url 'store:productoList' %}"
+                                   class="btn btn-outline-info"> Volver</a>
+                            </div>
+                            {% if user.is_authenticated %}
+                                {% include 'productos/producto/includes_productos/botones_productos.html' %}
+                            {% else %}
+                                <div class="col-sm-5 col-md-6">
+                                    <a href="{% url 'login' %}"
+                                       class="btn btn-outline-success">Iniciar sesion</a>
+
+                                    <a href="{% url 'register' %}"
+                                       class="btn btn-outline-secondary">Registrese</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

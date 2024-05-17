@@ -1,0 +1,72 @@
+{% load static %}
+<header class="header-section">
+    <div class="container-fluid">
+        <div class="inner-header">
+            <div class="logo">
+                <a href={% url 'store:inicioStore' %}><img src="{% static 'img/7camice.png' %}"
+                                                            style="width: 100px" alt="logo"></a>
+            </div>
+            <div class="user-access" style="display: inline-flex; align-content: center; justify-content: flex-start">
+                <div>
+                    <nav class="main-menu mobile-menu">
+                        <ul>
+                            <li><a class="active" href="{% url 'store:inicioStore' %}" style="text-decoration: none">Inicio</a>
+                            </li>
+                            <li><a href="{% url 'store:productosStore' %}">Productos</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'store:productoList' %}" style="text-decoration: none">Productos</a>
+                                    </li>
+                                    <li><a href="{% url 'cart:cart' %}" style="text-decoration: none">Carrito</a>
+                                    </li>
+                                    <li><a href="{% url 'cart:pedidoCreate' %}" style="text-decoration: none">Pedidos</a>
+                                    </li>
+                                    <li><a href="{% url 'cart:pedidoCreate' %}" style="text-decoration: none">Confirmar pedido</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'store:aboutStore' %}">Acerca de</a></li>
+                            <li><a href="{% url 'store:blogStore' %}">Blog</a></li>
+                            <li><a href="{% url 'store:contactoStore' %}">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    {% if user.is_authenticated %}
+                        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <a href="{% url 'perfil_usuario' %}" class="">{{ user.username|capfirst }}</a>
+                        <a href="{% url 'logout' %}" class="in">Cerrar sesion</a>
+                        <a href="{% url 'cart:cart' %}" class=" ml-3">carrito</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Iniciar sesion</a>
+                        <a href="{% url 'register' %}" class="in">Registrarse</a>
+                    {% endif %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="header-info" style="width: 100%">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 text-left text-lg-left">
+                <div class="header-item">
+                    {#                    <img src="{% static 'store/inicio/img/iconos/delivery.png' %}" alt="">#}
+                    <p>Envío gratuito en pedidos superiores a 30€ en España.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-left text-lg-center">
+                <div class="header-item">
+                    {#                    <img src="{% static 'store/inicio/img/iconos/voucher.png' %}" alt="">#}
+                    <p>20% de descuento para estudiantes</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-left text-xl-right">
+                <div class="header-item">
+                    {#                    <img src="{% static 'store/inicio/img/iconos/sales.png' %}" alt="">#}
+                    <p>30% de descuento en camisas. Código de uso: 30OFF</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

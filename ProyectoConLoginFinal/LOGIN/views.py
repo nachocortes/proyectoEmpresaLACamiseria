@@ -5,7 +5,7 @@ from django.contrib import messages
 from .forms import SignUpForm, EditProfileForm
 
 
-def home(request):
+def home_login(request):
     return render(request, 'login/home.html', {})
 
 

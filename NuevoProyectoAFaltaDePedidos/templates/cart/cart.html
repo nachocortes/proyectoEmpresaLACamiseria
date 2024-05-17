@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Tu carrito de la compra{% endblock %}
+{% block cuerpo %}
+    <table class="table-container">
+        <h1 class="text-center mt-5 mb-5">Tu carrito de la compra</h1>
+        {% if cart %}
+            <table class="table mb-5 mt-5">
+                <thead class="thead-dark">
+                <tr>
+                    <th></th>
+                    <th>Ref</th>
+                    <th>Producto</th>
+                    <th>cantidad</th>
+                    <th>Precio</th>
+                    <th>total</th>
+                    <th>Imagen</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in cart %}
+                    {% with producto=item.producto %}
+                        <tr>
+                            <td></td>
+                            <td>{{ producto.id }}</td>
+                            <td>{{ producto.nombre }}</td>
+                            <td>{{ item.cantidad }}</td>
+                            <td class="num">{{ item.precio }}€</td>
+                            <td class="num">{{ item.total_precio }}€</td>
+                            <td>
+                                <a href="{{ producto.get_absolute_url }}">
+                                    <img src="
+                                            {% if producto.imagen %}{{ producto.imagen.url }}{% else %}{% static "img/imagen_default.png" %}{% endif %}"
+                                         alt="imagen">
+                                </a>
+                            </td>
+                            <td>
+                                <form action="{% url "cart:cartAdd" producto.id %}" method="post">
+                                    {{ item.actualizar_cantidad_form.cantidad }}
+                                    {{ item.actualizar_cantidad_form.anular }}
+                                    <label>
+                                        <input class="btn btn-sm btn-outline-dark float-end float-lg-right"
+                                               type="submit" checked
+                                               value="Actualizar">
+                                    </label>
+                                    {% csrf_token %}
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url "cart:cartRemove" producto.id %}" method="post">
+                                    <input class="btn btn-sm btn-outline-danger float-end" type="submit" checked
+                                           value="Anular">
+                                    {% csrf_token %}
+                                </form>
+                            </td>
+                        </tr>
+                    {% endwith %}
+                {% endfor %}
+                <tr class="total ">
+                    <td><strong>Total</strong></td>
+                    <td colspan="4"></td>
+                    <td class="num"><strong>{{ cart.obtener_total_precio }}€</strong></td>
+                </tr>
+                </tbody>
+            </table>
+            </table>
+        {% else %}
+            <p>Carrito vacio</p>
+        {% endif %}
+    <div class="row justify-content-around">
+        <div class="col col-5 mx-auto">
+            <a href="{% url 'store:productoList' %}"
+               class="btn   btn-outline-info">Continuar comprando</a>
+        </div>
+        <div class="col col-5 mb-5">
+            <a href="{% url 'cart:pedidoCreate' %}"
+               class="btn   btn-outline-warning">Confirmar compra</a>
+        </div>
+        <div class="col col-2 mb-5"></div>
+    </div>
+{% endblock %}

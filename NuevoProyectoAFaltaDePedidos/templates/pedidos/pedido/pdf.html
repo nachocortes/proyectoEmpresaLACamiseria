@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pdf factura pedido</title>
+</head>
+<body>
+<div class="continer">
+    <div class="container">
+        <h2>Datos cliente</h2>
+        <table>
+            <tbody>
+            <tr>
+                <td>{{ pedido.nombre }} {{ pedido.apellidos }}</td>
+                <td>{{ pedido.direccion }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <table class="table-container">
+        <div class="info-box-content"></div>
+
+        <div class="order-info">
+            <h2 class="mt-3 text-center">Pedido</h2>
+            <table class="table mb-5 mt-5">
+                <thead class="thead-dark">
+                <tr>
+                    <th></th>
+                    <th>Ref</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>precio</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in cart %}
+                    <tr>
+                        <td></td>
+                        <td>{{ item.producto.id }}</td>
+                        <td>{{ item.producto.nombre }}</td>
+                        <td>{{ item.cantidad }}</td>
+                        <td>{{ item.precio }}</td>
+                        <td><span>{{ item.total_precio }}€</span></td>
+                    </tr>
+                {% endfor %}
+                <tr class="total ">
+                    <td><strong>Total</strong></td>
+                    <td colspan="4"></td>
+                    <td class="num"><strong>{{ cart.obtener_total_precio }}€</strong></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </table>
+</div>
+</body>
+</html>

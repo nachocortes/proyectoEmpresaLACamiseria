@@ -1,0 +1,45 @@
+{% load static %}
+<header class="header-section">
+    <div class="container-fluid">
+        <div class="inner-header">
+            <div class="logo">
+                <a href={% url 'home' %}><img src="{% static 'store/img/logos/7camice.png' %}"
+                                              style="width: 100px" alt="logo empresa"></a>
+            </div>
+            <div class="header-right">
+                <img src="{% static 'store/img/iconos/search.png' %}" alt=""
+                     class="search-trigger">
+                <img src="{% static 'store/img/iconos/man.png' %}" alt="">
+                <a href="#">
+                    <img src="{% static 'store/img/iconos/bag.png' %}" alt="">
+                    <span>2</span>
+                </a>
+            </div>
+            <div class="user-access" style="display: inline-flex; align-content: center; justify-content: flex-start">
+
+                <div>
+                    <nav class="main-menu mobile-menu">
+                        <ul>
+                            <li><a class="active" href="{% url 'home' %}" style="text-decoration: none">Inicio</a></li>
+                            <li><a href="{% url 'productos' %}">Tienda</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'productos' %}" style="text-decoration: none">Productos</a></li>
+                                    <li><a href="{% url 'productos' %}">Tarjeta compras</a></li>
+                                    <li><a href="{% url 'productos' %}">Verificar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'home' %}">Mi cuenta</a></li>
+                            <li><a href="{% url 'about' %}">Acerca de</a></li>
+                            <li><a href="{% url 'blog' %}">Blog</a></li>
+                            <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <a href="#">Registro</a>
+                    <a href="#" class="in">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

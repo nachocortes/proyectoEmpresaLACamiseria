@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'CRM',
     'VENTAS',
     'STORE',
-    'LOGIN',
+
 ]
 
 MIDDLEWARE = [
